@@ -1,0 +1,26 @@
+{% extends 'user/base.html' %}
+{% load staticfiles %}
+{% block search_bar %}
+    <div class="search_bar clearfix">
+        <a class="logo fl" href={% url 'commodity:index' %}><img src="/static/images/logo.png"></a>
+        <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
+        <div class="search_con fr">
+            <input type="text" class="input_text fl" name="" placeholder="搜索商品">
+            <input type="button" class="input_btn fr" name="" value="搜索">
+        </div>
+    </div>
+{% endblock search_bar %}
+{% block body %}
+    <div class="main_con clearfix">
+        <div class="left_menu_con clearfix">
+            <h3>用户中心</h3>
+            <ul>
+                <li><a {% if content.page == '1' %} class="active" {% endif %} href="{% url 'user:user' %}" >· 个人信息</a></li>
+                <li><a {% if content.page == '2' %} class="active" {% endif %} href="{% url 'user:order' %}" >· 全部订单</a></li>
+                <li><a {% if content.page == '3' %} class="active" {% endif %} href="{% url 'user:adress' %}" >· 收货地址</a></li>
+            </ul>
+        </div>
+        {% block right %}{% endblock right %}
+    </div>
+    
+{% endblock body %}

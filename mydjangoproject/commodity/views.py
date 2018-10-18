@@ -21,3 +21,7 @@ def index(request):
     #进行处理，和M和T进行交互
 
     return render(request,'commodity/index.html')
+def test(request):
+    goods_list=GoodType.objects.all()
+    print(goods_list)
+    return render(request,'commodity/test.html',{'good_list':goods_list})

@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'commodity',
     'user',
+    'tinymce',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -130,14 +131,22 @@ FORBIDDEN_IPS=[
 #上传文件储存的路径
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/media')
 
+#自定义储存的类
+DEFAULT_FILE_STORAGE='utils.fdfs.storage.FDSSorage'
+#FastDFS设置-客户端配置文件
+FDFS_CLIENT_CONF='utils/fdfs/client.conf'
+#FastDFS设置url
+FDFS_URL='http://192.168.12.164:9999/'
 
 #session 交给redis管理
-# SESSION_ENGINE = 'redis_sessions.session'
-# SESSION_REDIS_HOST = '192.168.12.164'
-# SESSION_REDIS_PORT = 6379
-# SESSION_REDIS_DB = 15
-# SESSION_REDIS_PASSWORD = ''
-# SESSION_REDIS_PREFIX = 'session'
+SESSION_ENGINE = 'redis_sessions.session'
+SESSION_REDIS_HOST = '192.168.12.164'
+SESSION_REDIS_PORT = 6379
+SESSION_REDIS_DB = 1
+SESSION_REDIS_PASSWORD = ''
+SESSION_REDIS_PREFIX = 'session'
+
+
 
 AUTH_USER_MODEL='user.User'
 
@@ -147,4 +156,15 @@ EMAIL_HOST='smtp.163.com'
 EMAIL_PORT='25'
 EMAIL_HOST_USER='18336233108@163.com'
 EMAIL_HOST_PASSWORD='syg147258369'
-EMAIL_FORM='天天生鲜<18336233108@163.com'
+EMAIL_FORM='天天生鲜<18336233108@163.com>'
+
+#配置登录url
+LOGIN_URL='/user/login'
+
+
+#富文本编辑器
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'width': 300,
+    'height': 200,
+}

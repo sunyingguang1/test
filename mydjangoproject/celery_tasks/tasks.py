@@ -19,7 +19,7 @@ app=Celery('celery_tasks.tasks',broker='redis://192.168.12.164:6379/8')
 def send_register_active_email(to_email,username,encryption_url):
     '''发送激活邮件'''
     # 发邮件
-    subject = '天天生鲜会员注册'
+    subject = '天天生鲜邮箱验证'
     message = ''
     sender = settings.EMAIL_FORM
     receiver = [to_email]

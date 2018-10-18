@@ -17,8 +17,9 @@ from django.conf.urls import include, url
 from django.contrib import admin
 #项目的urls文件
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^user/', include('user.urls', namespace='user')),
-    url(r'^', include('commodity.urls',namespace='commodity')),# 包含book应用中url的文件
+    url(r'^admin/', include(admin.site.urls)),#后台管理
+    url(r'^user/', include('user.urls', namespace='user')),#用户模块
+    url(r'^', include('commodity.urls',namespace='commodity')),# 商品模块
+    url(r'^tinymce/', include('tinymce.urls')),#tinymce模块
 
 ]

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 文件海量储存</title>
+</head>
+<body>
+<ul>
+    {% for goodstype in good_list %}
+    <li>
+        <ul>
+            <li>{{ goodstype.name }}</li>
+            <li><img src="{{ goodstype.image.url }}"></li>
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
